@@ -30,12 +30,14 @@ namespace Assignment3.Tests
 
         [Test]
         public void TestPrepend()
-        {            
-            //assert that count is 4
-            Assert.AreEqual(4, users.Count());
+        {
+            users.AddFirst(new User(5, "Jane Doe", "JaneDoe@outlook.com", "ilovedogs44"));
 
-            //Assert list has Joe Blow
-            Assert.AreEqual("Joe Blow", users.Head.Value.Name);
+            //assert that count is 5
+            Assert.AreEqual(5, users.Count());
+
+            //Assert Jane Doe is the new Head
+            Assert.AreEqual("Jane Doe", users.Head.Value.Name);
         }
 
         [Test]
@@ -44,9 +46,10 @@ namespace Assignment3.Tests
             User user = new User(5, "Jane Doe", "JaneDoe@outlook.com", "ilovedogs44");
             users.AddLast(user);
 
-
+            //Assert the list count went up
             Assert.AreEqual(5, users.Count());
 
+            //check the Jane Doe got added to the end
             Node node = users.Head;
             while (node.Next != null)
             {
@@ -54,6 +57,7 @@ namespace Assignment3.Tests
             }
             Assert.AreEqual("Jane Doe", node.Value.Name);
 
+            //assert that Jane Doe has the proper index
             Assert.AreEqual(4, users.IndexOf(user));     
         }
 
@@ -65,7 +69,7 @@ namespace Assignment3.Tests
             //assert that count is 5
             Assert.AreEqual(5, users.Count());
 
-            //Assert list has Jane Doe       
+            //Assert list has Jane Doe at the right location      
             Assert.AreEqual("Jane Doe", users.Head.Next.Value.Name);
         }
 
@@ -89,7 +93,7 @@ namespace Assignment3.Tests
             //assert that count is 3
             Assert.AreEqual(3, users.Count());
 
-            //Assert list has Joe Schmoe
+            //Assert list has Joe Schmoe as the Head now
             Assert.AreEqual("Joe Schmoe", users.Head.Value.Name);
         }
 
@@ -101,7 +105,7 @@ namespace Assignment3.Tests
             //assert that count is 3
             Assert.AreEqual(3, users.Count());
 
-            //Assert list has Jane Doe
+            //Assert the end of the list is now Colonel Sanders
             Node node = users.Head;
             while (node.Next != null)
             {
@@ -126,7 +130,9 @@ namespace Assignment3.Tests
         [Test]
         public void Find()
         {
-
+            User user = (new User(4, "Ronald McDonald", "burgers4life63@outlook.com", "mcdonalds999"));
+            
+            Assert.IsTrue(users.Contains(user));
         }
 
         [Test]

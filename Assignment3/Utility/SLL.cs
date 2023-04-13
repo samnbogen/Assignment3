@@ -108,20 +108,29 @@ namespace Assignment3
         {
             // create new node
             Node freshNode = new Node();
+            Node node = Head;
 
             // Assign value to new node
             freshNode.Value = value;
 
             // check if the value is not null and return true
-            if (freshNode.Value != null)
+            if (node.Value == freshNode.Value)
             {
                 return true;
             }
-
             else
             {
-                return false;
-            }          
+                while (node.Next != null && node.Next.Next != null)
+                {
+                    node = node.Next;
+                }
+                if (node.Value == freshNode.Value)
+                {
+                    return true;
+                }
+            }
+            return false;
+
         }
 
         public int Count()
