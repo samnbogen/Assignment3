@@ -131,7 +131,9 @@ namespace Assignment3.Tests
         public void Find()
         {
             User user = (new User(4, "Ronald McDonald", "burgers4life63@outlook.com", "mcdonalds999"));
+            User user2 = (new User(1, "Joe Blow", "jblow@gmail.com", "password"));
             
+            Assert.IsTrue(users.Contains(user2));
             Assert.IsTrue(users.Contains(user));
         }
 

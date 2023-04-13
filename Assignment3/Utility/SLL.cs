@@ -114,19 +114,19 @@ namespace Assignment3
             freshNode.Value = value;
 
             // check if the value is not null and return true
-            if (node.Value == freshNode.Value)
+            if (node.Value == node.Value)
             {
                 return true;
             }
             else
             {
-                while (node.Next != null && node.Next.Next != null)
-                {
+                while (node.Next != null)
+                {                    
+                    if (node.Value == freshNode.Value)
+                    {
+                        return true;
+                    }
                     node = node.Next;
-                }
-                if (node.Value == freshNode.Value)
-                {
-                    return true;
                 }
             }
             return false;
