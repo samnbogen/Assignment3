@@ -11,8 +11,8 @@ using System.Xml.Linq;
 
 namespace Assignment3
 {
-    [Serializable, KnownType(typeof(ExampleClass))]
-    public class ExampleClass { /* ... */ }
+    [Serializable, KnownType(typeof(User))]
+    
     public class SLL : ILinkedListADT
     {
         public Node Head { get; set; }
@@ -40,6 +40,7 @@ namespace Assignment3
             }
             else
             {
+                //looping through to find the index
                 for (int i = 0; i < index - 1; i++)
                 {
                     node = node.Next;                    
@@ -196,6 +197,7 @@ namespace Assignment3
             node.Next = node.Next.Next;
             nodeJunk.Next = null;
 
+            //decrease count
             _count--;
         }
 
