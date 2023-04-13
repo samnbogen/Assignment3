@@ -1,0 +1,24 @@
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.SuggestedBindingRedirects.cache
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\nhamnett\OneDrive\SAIT\Semesters\Winter2023\CPRG211 OOP2\Nicks\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.SuggestedBindingRedirects.cache
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\samnb\Documents\OOP2\Assignment_3_skeleton\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.SuggestedBindingRedirects.cache
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\samnb\Source\Repos\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
