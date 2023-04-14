@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
@@ -34,18 +35,30 @@ namespace Assignment3
 
             Node node = Head;
 
+            //
+            Node oldnode = new Node();
+
             if (index == 0)
             {
-                node = freshNode;
+                //if node is being added to the Head
+                Head = freshNode;
+                Head.Next = node;
             }
             else
             {
                 //looping through to find the index
-                for (int i = 0; i < index - 1; i++)
+                for (int i = 0; i < index -1; i++)
                 {
                     node = node.Next;                    
                 }
+                //assign the node in the position we want to move to as oldnode
+                oldnode = node.Next;    
+
+                //move freshnode into that spot
                 node.Next = freshNode;
+
+                //tell freshnode to point to oldnode
+                node.Next.Next = oldnode;
             }           
 
             // increment Count
@@ -113,25 +126,17 @@ namespace Assignment3
 
             // Assign value to new node
             freshNode.Value = value;
-
-            // check if the value is not null and return true
-            if (node.Value == node.Value)
+            bool found = false;
+            // check if the Head value is the same and returns true
+            while (node != null)
             {
-                return true;
-            }
-            else
-            {
-                while (node.Next != null)
-                {                    
-                    if (node.Value == freshNode.Value)
-                    {
-                        return true;
-                    }
-                    node = node.Next;
+                if (node.Value.Id == freshNode.Value.Id)
+                {
+                    found = true;
                 }
-            }
-            return false;
-
+                node = node.Next;
+            }            
+            return found;                        
         }
 
         public int Count()
@@ -142,10 +147,12 @@ namespace Assignment3
         public User GetValue(int index)
         {
             Node node = Head;
+            //loops through the nodes untill it finds the one one at the right index
             for (int i = 0; i < index; i++)
             {
                 node = node.Next;
             }
+            //returns the value of the found node
             return node.Value;
         }
 
@@ -157,9 +164,10 @@ namespace Assignment3
 
             while (node.Value != null)
             {
-                int i = 0;
+                int i = 1;
                 if (node.Value == freshNode.Value)
                 {
+                    //returns the value of Head node as 1
                     return i;
                 }               
                 while (node.Next.Value != freshNode.Value)
@@ -167,13 +175,15 @@ namespace Assignment3
                     node = node.Next;
                     i++;
                 }
-                return i+1;                
+                //returns the index of the found node
+                return i;                
             }
             return -1;
         }
 
         public bool IsEmpty()
         {
+            //checks if the list in empty
             if (Head == null)
             {
                 return true;
@@ -187,14 +197,22 @@ namespace Assignment3
         public void Remove(int index)
         {
             Node node = Head;
+
+            //create node to delete
             Node nodeJunk = new Node();
+
+            //find the node at index
             for (int i = 0; i < index - 1; i++) 
             {
                 node = node.Next;
-
             }
+            //get the value to delete
             nodeJunk.Value = node.Next.Value;
+
+            //move the nodes over
             node.Next = node.Next.Next;
+
+            //junk the node by cutting the connection
             nodeJunk.Next = null;
 
             //decrease count
@@ -203,29 +221,42 @@ namespace Assignment3
 
         public void RemoveFirst()
         {
+            //if the list is there
             if (Head != null)
             {
+                Node oldhead = Head;
+                //reassign Head
                 Head = Head.Next;
+
+                oldhead.Next = null;
+                oldhead = null;
+
+                //lower the count
                 _count--;
             }
             else
             {
                 throw new Exception("Can Not Remove");
-            }
-            
+            }            
         }
 
         public void RemoveLast()
         {
             if (Head != null)
             {
+                Node junknode = new Node();
                 Node node = Head;
+                //find the node before the last one
                 while (node.Next != null && node.Next.Next != null)
                 {
                     node = node.Next;
                 }
-
+                //tell the second last node to break up with the last node
+                junknode = node.Next;
                 node.Next = null;
+                junknode = null;
+
+                //lower the count!!!
                 _count--;
             }
             else
@@ -237,24 +268,34 @@ namespace Assignment3
         public void Replace(User value, int index)
         {
             Node node = Head;
+
+            //finding the index 
             for (int i = 0; i < index; i++)
             {
                 node = node.Next;
             }
 
-            node.Value = value;
-            
+            //check if the node has a value
+            if (node == null)
+            {
+                throw new Exception("Nothing is there");
+            }
+            else
+            {
+                //reassigning the value to the node at index
+                node.Value = value;
+            }                       
         }
 
         //Reverse the order of the nodes in the linked list.
         public void Reverse()
         {
             // create variable to hold how long the list is (Don't need to move the last thing on the list so -1)
-            int i = Count() - 1;
-            int ii = Count() - 1;
+            int i = Count() -1;
+            int ii = Count();
 
             //loop through the list adding things in reverse order (instead of replacing so we don't lose values)
-            while (i > 0) 
+            while (i >= 0) 
             {                                
                 this.AddLast(GetValue(i));
                                 

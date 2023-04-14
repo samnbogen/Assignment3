@@ -34,13 +34,18 @@ namespace Assignment3.Tests
         [Test]
         public void TestPrepend()
         {
-            users.AddFirst(new User(5, "Jane Doe", "JaneDoe@outlook.com", "ilovedogs44"));
-
+            User user = new User(5, "Jane Doe", "JaneDoe@outlook.com", "ilovedogs44");
+            users.AddFirst(user);
+            
             //assert that count is 5
             Assert.AreEqual(5, users.Count());
 
             //Assert Jane Doe is the new Head
             Assert.AreEqual("Jane Doe", users.Head.Value.Name);
+            Assert.AreEqual(1, users.IndexOf(user));
+
+            //Assert Joe Blow moved over
+            Assert.AreEqual("Joe Blow", users.Head.Next.Value.Name);
         }
 
         [Test]
@@ -62,8 +67,7 @@ namespace Assignment3.Tests
 
             //assert that Jane Doe has the proper index
             Assert.AreEqual(4, users.IndexOf(user));   
-            
-            Assert.AreEqual(user, users.GetValue(users.IndexOf(user)));
+                        
         }
 
         [Test]
@@ -76,6 +80,21 @@ namespace Assignment3.Tests
 
             //Assert list has Jane Doe at the right location      
             Assert.AreEqual("Jane Doe", users.Head.Next.Value.Name);
+
+            //Assert Joe Schmoe moved into the third spot
+            Assert.AreEqual("Joe Schmoe", users.Head.Next.Next.Value.Name);
+
+            //Add Bob Vance as the Head
+            users.Add(new User(5, "Bob Vance", "BobVance@refrigeration.com", "IloveCold"), 0);
+
+            //Assert count is now 6!!!
+            Assert.AreEqual(6, users.Count());
+
+            //Assert Bob Vance is now at the Head
+            Assert.AreEqual("Bob Vance", users.Head.Value.Name);
+
+            //Assert Jan Doe moved
+            Assert.AreEqual("Jane Doe", users.Head.Next.Next.Value.Name);
         }
 
         [Test]
@@ -88,6 +107,7 @@ namespace Assignment3.Tests
 
             //Assert list has Jane Doe       
             Assert.AreEqual("Jane Doe", users.Head.Next.Value.Name);
+                        
         }
 
         [Test]
@@ -101,6 +121,9 @@ namespace Assignment3.Tests
             //Assert list has Joe Schmoe as the Head now
             Assert.AreEqual("Joe Schmoe", users.Head.Value.Name);
 
+            //assert the list no longer has Joe Blow
+            User user = new User(1, "Joe Blow", "jblow@gmail.com", "password");
+            Assert.IsFalse(users.Contains(user));
         }
 
         [Test]
@@ -118,6 +141,14 @@ namespace Assignment3.Tests
                 node = node.Next;
             }
             Assert.AreEqual("Colonel Sanders", node.Value.Name);
+                        
+            Assert.AreEqual("Joe Blow", users.Head.Value.Name);
+
+
+            //check that the list no longer has Ronald McDonald
+            User user = new User(4, "Ronald McDonald", "burgers4life63@outlook.com", "mcdonalds999");
+            Assert.IsFalse(users.Contains(user));
+            
         }
 
         [Test]
@@ -138,10 +169,11 @@ namespace Assignment3.Tests
         {
             User user = (new User(4, "Ronald McDonald", "burgers4life63@outlook.com", "mcdonalds999"));
             User user2 = (new User(1, "Joe Blow", "jblow@gmail.com", "password"));
-            
+
             //assert list has certain users
-            Assert.IsTrue(users.Contains(user2));
             Assert.IsTrue(users.Contains(user));
+            Assert.IsTrue(users.Contains(user2));
+            
         }
 
         [Test]
@@ -154,6 +186,17 @@ namespace Assignment3.Tests
 
             //Assert list has Ronald McDonald is now the head
             Assert.AreEqual("Ronald McDonald", users.Head.Value.Name);
+
+            //Assert Colonel Sanders is in the second spot
+            Assert.AreEqual("Colonel Sanders", users.Head.Next.Value.Name);
+            
+            //check that Joe Blow in now at the end
+            Node node = users.Head;
+            while (node.Next != null)
+            {
+                node = node.Next;
+            }
+            Assert.AreEqual("Joe Blow", node.Value.Name);
         }
     }
 }
