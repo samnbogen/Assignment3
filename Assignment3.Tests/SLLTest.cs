@@ -26,6 +26,9 @@ namespace Assignment3.Tests
         [TearDown]
         public void TearDown() 
         { 
+            users.Clear();
+
+            Assert.AreEqual(null, users.Head);
         }
 
         [Test]
@@ -58,7 +61,9 @@ namespace Assignment3.Tests
             Assert.AreEqual("Jane Doe", node.Value.Name);
 
             //assert that Jane Doe has the proper index
-            Assert.AreEqual(4, users.IndexOf(user));     
+            Assert.AreEqual(4, users.IndexOf(user));   
+            
+            Assert.AreEqual(user, users.GetValue(users.IndexOf(user)));
         }
 
         [Test]
@@ -95,6 +100,7 @@ namespace Assignment3.Tests
 
             //Assert list has Joe Schmoe as the Head now
             Assert.AreEqual("Joe Schmoe", users.Head.Value.Name);
+
         }
 
         [Test]
